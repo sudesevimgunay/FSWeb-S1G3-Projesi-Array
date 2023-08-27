@@ -208,11 +208,49 @@ Aşağıdakileri yapmak için ortalamaKelimeSayisi işlevini kullanın:
 
    Örneğin: ortalamaKelimeSayisi(orijinalTatlar) 0 ile 2 arasında bir sayı döndürmelidir.
 */
+const aileIsımleri =["Orhan Görkem Sevim","Selin Celik Sevim","Sude Sevim Günay","Meral Sevim","Ümit Sevim","Suleyman Günay"]
 
-function ortalamaKelimeSayisi(/*kod buraya*/){
-  /*kod buraya*/
+function ortalamaKelimeSayisi(dizi){
+let kelimeSayısı=0;
+
+for(let i=0; i<dizi.length; i++){
+  kelimeSayısı=dizi[i].split(" ").length+ kelimeSayısı
+  console.log("kelime split: ",dizi[i].split(" "))
+  console.log("kelime sayısı:", dizi[i].split(" ").length)
+  console.log("kelime boşluk sayısı1:", kelimeSayısı)
+
 }
+return kelimeSayısı/dizi.length
 
+
+
+
+/* listede 2 kelimeden fazla öğe sayısı olmadığında bu çözüm olabilir 3 veya daha fazla olduğunda çalışmaz.
+  let toplamKelimeSayısı=0
+
+  for (let i=0; i<dizi.length; i++){
+    if(dizi[i].includes(" ")){
+
+      toplamKelimeSayısı=toplamKelimeSayısı+2;
+      console.log(`index : ${i} -> "${dizi[i]}" kelimesayısı -> "2"`) 
+
+    }else {
+      toplamKelimeSayısı=toplamKelimeSayısı+1 ;
+      console.log(`index : ${i} -> "${dizi[i]}" kelimesayısı -> "1"`)
+
+    }
+    
+   
+ 
+  }  
+  return toplamKelimeSayısı/dizi.length
+  
+  */ 
+  
+  
+  
+}
+console.log("ortalama kelime sayısı: ",ortalamaKelimeSayisi(orijinalTatlar) )
 
 /* ALIŞTIRMA 2:
 Firma mevcut tatların yanında artık mevsimlik lezzetler ve hatta bölgesel lezzetler de sunmaktadır. Toplam 25 lezzet aromasını
@@ -225,49 +263,71 @@ Aşağıdakileri yapmak için rastgeleTatlar işlevini ve yeni dizileri kullanı
 
   Örneğin: rastgeleTatlar(orijinalTatlar, yeniTatlar, mevsimlikTatlar, bolgeselTatlar) çalıştırıldığında ["Kestane", "Ballı Badem,"..."Hindistan Cevizi", "Kuru üzüm"].
 */
+const yeniTatlar = [
+  "Badem",
+  "Ballı Badem",
+   "Fıstık Ezmesi",
+   "Profiterol",
+   "Madlen Çikolata"
+ ]
+
+ const mevsimlikTatlar = [
+ "Pekan",
+ "Kaju",
+ "Çikolatalı Mousse",
+ "Fransız Vanilyası",
+ "Yumurta",
+ "Alman çikolatası",
+ "Kek üzerine krema",
+ "Hindistan Cevizi",
+ "Kaymaklı Biskuvi",
+ "Beyaz Çikolata",
+ "Mango"
+ ]
+
+ const bolgeselTatlar = [
+ "Kaymak",
+ "Karpuz",
+ "Karadut",
+ "Turunç",
+ "Portakal",
+ "Yogurt",
+ "Krem Peynir",
+ "Kakao",
+ "Karamel macchiato",
+ "Kuru üzüm",
+ "Peynir",
+ "Karamel"
+ ]
+
+function rastgeleTatlar(list1,list2,list3,list4){
+
+  const karışıkListe= list1.concat(list2,list3,list4);
+  const rastgeleListe=[];
+  console.log("karışık liste :", karışıkListe)
+  for(let i=0; i<25; i++){
+    const randomIndex=Math.floor(Math.random()*karışıkListe.length)
+    if (rastgeleListe.includes(karışıkListe[randomIndex])){
+    
+    console.log("random indexli eleman :",karışıkListe[randomIndex])
+    
+  }else {
+    console.log("rastgele liste :", rastgeleListe.push(karışıkListe[randomIndex]))
+
+  }
+
+  }
+  
+return rastgeleListe
+ 
 
 
-function rastgeleTatlar(/*kod buraya*/){
-  /*kod buraya*/
+  
 }
+console.log("Rastgele tatlar listesi :",rastgeleTatlar(orijinalTatlar, yeniTatlar, mevsimlikTatlar, bolgeselTatlar))
 
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
-// const yeniTatlar = [
-//   "Badem",
-//   "Ballı Badem",
-//   "Fıstık Ezmesi",
-//   "Profiterol",
-//   "Madlen Çikolata"
-// ]
 
-// const mevsimlikTatlar = [
-// "Pekan",
-// "Kaju",
-// "Çikolatalı Mousse",
-// "Fransız Vanilyası",
-// "Yumurta",
-// "Alman çikolatası",
-// "Kek üzerine krema",
-// "Hindistan Cevizi",
-// "Kaymaklı Biskuvi",
-// "Beyaz Çikolata",
-// "Mango"
-// ]
-
-// const bolgeselTatlar = [
-// "Kaymak",
-// "Karpuz",
-// "Karadut",
-// "Turunç",
-// "Portakal",
-// "Yogurt",
-// "Krem Peynir",
-// "Kakao",
-// "Karamel macchiato",
-// "Kuru üzüm",
-// "Peynir",
-// "Karamel"
-// ]
 
 
 /* Lütfen bu satırın altındaki hiçbir şeyi değiştirmeyin */
