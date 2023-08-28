@@ -304,10 +304,47 @@ function rastgeleTatlar(list1,list2,list3,list4){
 
   const karışıkListe= list1.concat(list2,list3,list4);
   const rastgeleListe=[];
+  
   console.log("karışık liste :", karışıkListe)
-  for(let i=0; i<25; i++){
+  
+  let i=0;
+  
+  
+    while(i<25){
+      const randomIndex=Math.floor(Math.random()*karışıkListe.length)
+      
+      if(rastgeleListe.includes(karışıkListe[randomIndex])){
+
+        continue
+    
+      } else {
+        rastgeleListe.push(karışıkListe[randomIndex])
+
+      }
+      i++
+      } 
+
+      return rastgeleListe
+
+    }
+
+
+  
+  
+  
+  
+
+ 
+  
+
+console.log("Rastgele tatlar listesi :",rastgeleTatlar(orijinalTatlar, yeniTatlar, mevsimlikTatlar, bolgeselTatlar))
+
+// NEW DATA ARRAYS FOR STRETCH 2 ⬇️
+/*for(let i=0; i<25; i++){
     const randomIndex=Math.floor(Math.random()*karışıkListe.length)
     if (rastgeleListe.includes(karışıkListe[randomIndex])){
+  
+    rastgeleListe.push(karışıkListe[randomIndex])
     
     console.log("random indexli eleman :",karışıkListe[randomIndex])
     
@@ -318,16 +355,6 @@ function rastgeleTatlar(list1,list2,list3,list4){
 
   }
   
-return rastgeleListe
- 
-
-
-  
-}
-console.log("Rastgele tatlar listesi :",rastgeleTatlar(orijinalTatlar, yeniTatlar, mevsimlikTatlar, bolgeselTatlar))
-
-// NEW DATA ARRAYS FOR STRETCH 2 ⬇️
-
 
 
 /* Lütfen bu satırın altındaki hiçbir şeyi değiştirmeyin */
